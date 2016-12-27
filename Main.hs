@@ -10,6 +10,7 @@ import Network.HTTP.Types (status404)
 import Network.Socket (SockAddr (SockAddrInet))
 import Network.Wai (remoteHost)
 import Web.Scotty (get, json, scotty, header, status, text, ActionM, request, param)
+import System.Environment (getEnv)
 import Text.Read (readMaybe)
 import qualified Data.Text.Lazy as TL
 
@@ -55,7 +56,8 @@ service geodb (Just ip) = do
 
 main :: IO ()
 main = do
-  geodb <- openGeoDB "GeoIP2-City.mmdb"
+  dbname <- getEnv "GEOIP_DB"
+  geodb <- openGeoDB dbname
   scotty 3000 $ do
     get "/" $ do
       ipM <- findIp

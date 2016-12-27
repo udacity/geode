@@ -25,7 +25,7 @@ $ cabal install -j --only-dependencies
 Fire up Geode:
 
 ```
-$ cabal run
+$ GEOIP_DB=GeoIP2-City.mmdb cabal run
 Running geode...
 Setting phasers to stun... (port 3000) (ctrl-c to quit)
 ```
