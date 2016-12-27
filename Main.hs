@@ -55,7 +55,7 @@ service geodb (Just ip) = do
 
 main :: IO ()
 main = do
-  geodb <- openGeoDB "GeoLite2-City.mmdb"
+  geodb <- openGeoDB "GeoIP2-City.mmdb"
   scotty 3000 $ do
     get "/" $ do
       ipM <- findIp

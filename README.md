@@ -9,7 +9,7 @@ Grab a [*GeoLite2 City* database][geolite2] from MaxMind:
 
 ```
 $ curl -s http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz | \
-  gunzip > GeoLite2-City.mmdb
+  gunzip > GeoIP2-City.mmdb
 ```
 
 Prep Cabal for building/running Geode:
