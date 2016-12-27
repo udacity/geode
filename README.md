@@ -3,7 +3,7 @@
 geode is a simple Web frontend for [MaxMind][maxmind]'s [GeoIP2
 City][geoip2-city] database.
 
-## Usage
+## Setup
 
 Grab a [*GeoLite2 City* database][geolite2] from MaxMind:
 
@@ -18,6 +18,8 @@ Prep Cabal for building/running geode:
 $ cabal sandbox init
 $ cabal install -j --only-dependencies
 ```
+
+## Usage
 
 Fire up geode:
 
