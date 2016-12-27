@@ -1,0 +1,86 @@
+{
+  "swagger": "2.0",
+  "host": "http://localhost:3000",
+  "info": {
+    "version": "0.1.0.0",
+    "title": "geode"
+  },
+  "basePath": "",
+  "paths": {
+    "/8.8.8.8": {
+      "get": {
+        "produces": [ "application/json" ],
+        "responses": {
+          "200": {
+            "description": "Geolocation data for the given IP address"
+          }
+        },
+        "x-amples": [
+          {
+            "request": {
+              "headers": {
+                "accept": "application/json"
+              }
+            },
+            "response": {
+              "status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8"
+              },
+              "body": {
+                "city": "Mountain View",
+                "continent": "North America",
+                "continentCode": "NA",
+                "countryCode": "US",
+                "countryName": "United States",
+                "latitude":  37.386,
+                "longitude":  -122.0838,
+                "postalCode": "94035",
+                "region": "CA",
+                "regionName": "California"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/": {
+      "get": {
+        "produces": [ "application/json" ],
+        "responses": {
+          "200": {
+            "description": "Geolocation data for the client's IP address"
+          }
+        },
+        "x-amples": [
+          {
+            "request": {
+              "headers": {
+                "accept": "application/json",
+                "x-forwarded-for": "8.8.4.4"
+              }
+            },
+            "response": {
+              "status": 200,
+              "headers": {
+                "content-type": "application/json; charset=utf-8"
+              },
+              "body": {
+                "city": null,
+                "continent": "North America",
+                "continentCode": "NA",
+                "countryCode": "US",
+                "countryName": "United States",
+                "latitude": 37.751,
+                "longitude": -97.822,
+                "postalCode": null,
+                "region": null,
+                "regionName": null
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
