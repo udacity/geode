@@ -47,6 +47,10 @@ $ curl -s localhost:3000/8.8.8.8
 }
 ```
 
+If you make a request to `/` (leaving off any IP address) geode will
+look up your IP address, checking for any `X-Forwarded-For` header, then
+falling back to the socket address of your client.
+
 [maxmind]: https://www.maxmind.com/
 [geoip2-city]: https://www.maxmind.com/en/geoip2-city
 [geolite2]: https://dev.maxmind.com/geoip/geoip2/geolite2/
