@@ -1,6 +1,6 @@
 ## About
 
-geode is a simple Web frontend for [MaxMind][maxmind]'s [GeoIP2
+Geode is a simple Web frontend for [MaxMind][maxmind]'s [GeoIP2
 City][geoip2-city] database.
 
 ## Setup
@@ -12,7 +12,7 @@ $ curl -s http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.
   gunzip > GeoLite2-City.mmdb
 ```
 
-Prep Cabal for building/running geode:
+Prep Cabal for building/running Geode:
 
 ```
 $ cabal sandbox init
@@ -21,7 +21,7 @@ $ cabal install -j --only-dependencies
 
 ## Usage
 
-Fire up geode:
+Fire up Geode:
 
 ```
 $ cabal run
@@ -47,7 +47,7 @@ $ curl -s localhost:3000/8.8.8.8
 }
 ```
 
-If you make a request to `/` (leaving off any IP address) geode will
+If you make a request to `/` (leaving off any IP address) Geode will
 look up your IP address, checking for any `X-Forwarded-For` header, then
 falling back to the socket address of your client.
 
