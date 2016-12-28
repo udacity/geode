@@ -9,7 +9,7 @@ import Data.Maybe (listToMaybe)
 import Network.HTTP.Types (status404)
 import Network.Socket (SockAddr (SockAddrInet))
 import Network.Wai (remoteHost)
-import Web.Scotty (get, json, scotty, header, status, text, ActionM, request, param)
+import Web.Scotty (get, json, scotty, header, status, text, ActionM, request, param, file, setHeader)
 import System.Environment (getEnv)
 import Text.Read (readMaybe)
 import qualified Data.Text.Lazy as TL
@@ -62,6 +62,9 @@ main = do
     get "/" $ do
       ipM <- findIp
       service geodb ipM
+    get "/swagger.json" $ do
+      setHeader "Content-Type" "application/json"
+      file "swagger.json"
     get "/:ip" $ do
       ip <- param "ip"
       service geodb (readMaybe ip)
