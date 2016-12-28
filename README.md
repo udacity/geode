@@ -10,7 +10,7 @@ Purchase a [*GeoIP2 City* database][geoip2-city], or grab a free
 
 ```
 $ curl -s http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz | \
-  gunzip > GeoIP2-City.mmdb
+  gunzip > GeoLite2-City.mmdb
 ```
 
 Prep Cabal for building/running Geode:
@@ -25,7 +25,7 @@ $ cabal install -j --only-dependencies
 Fire up Geode:
 
 ```
-$ GEOIP_DB=GeoIP2-City.mmdb cabal run
+$ GEOIP_DB=GeoLite2-City.mmdb cabal run
 Running geode...
 Setting phasers to stun... (port 3000) (ctrl-c to quit)
 ```
