@@ -9,7 +9,8 @@ import Data.Maybe (listToMaybe)
 import Network.HTTP.Types (status404)
 import Network.Socket (SockAddr (SockAddrInet))
 import Network.Wai (remoteHost)
-import Web.Scotty (get, json, scotty, header, status, text, ActionM, request, param, file, setHeader)
+import Web.Scotty (get, json, scotty, header, status, text, ActionM, request, param, file, setHeader, middleware)
+import Network.Wai.Middleware.Cors (simpleCors)
 import System.Environment (getEnv)
 import Text.Read (readMaybe)
 import qualified Data.Text.Lazy as TL
@@ -59,6 +60,7 @@ main = do
   dbname <- getEnv "GEOIP_DB"
   geodb <- openGeoDB dbname
   scotty 3000 $ do
+    middleware simpleCors
     get "/" $ do
       ipM <- findIp
       service geodb ipM

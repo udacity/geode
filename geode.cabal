@@ -22,3 +22,4 @@ executable geode
                      , wai
                      , network
                      , exceptions
+                     , wai-cors
