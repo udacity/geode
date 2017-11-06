@@ -1,0 +1,13 @@
+# Emacs droppings
+*~
+
+# Cabal sandbox should not be committed
+.cabal-sandbox/
+cabal.sandbox.config
+
+# Build output
+dist/
+
+# The default geoip database--you should always fetch this yourself instead of
+# it being checked in
+GeoLite2-City.mmdb
