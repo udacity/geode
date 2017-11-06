@@ -23,8 +23,8 @@ instance ToJSON Result where
                              , "continent"     .= geoContinent x
                              , "countryCode"   .= geoCountryISO x
                              , "countryName"   .= geoCountry x
-                             , "latitude"      .= (fst <$> geoLocation x)
-                             , "longitude"     .= (snd <$> geoLocation x)
+                             , "latitude"      .= (locationLatitude <$> geoLocation x)
+                             , "longitude"     .= (locationLongitude <$> geoLocation x)
                              , "postalCode"    .= geoPostalCode x
                              , "region"        .= (fst <$> (listToMaybe $ geoSubdivisions x))
                              , "regionName"    .= (snd <$> (listToMaybe $ geoSubdivisions x))
