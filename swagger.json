@@ -8,7 +8,7 @@
   },
   "basePath": "",
   "paths": {
-    "/8.8.8.8": {
+    "/34.213.34.148": {
       "get": {
         "produces": [ "application/json" ],
         "responses": {
@@ -30,16 +30,16 @@
                   "content-type": "application/json; charset=utf-8"
                 },
                 "body": {
-                  "city": "Mountain View",
+                  "city": "Boardman",
                   "continent": "North America",
                   "continentCode": "NA",
                   "countryCode": "US",
                   "countryName": "United States",
-                  "latitude":  37.386,
-                  "longitude":  -122.0838,
-                  "postalCode": "94035",
-                  "region": "CA",
-                  "regionName": "California"
+                  "latitude":  45.8696,
+                  "longitude":  -119.688,
+                  "postalCode": "97818",
+                  "region": "OR",
+                  "regionName": "Oregon"
                 }
               }
             }
@@ -60,7 +60,7 @@
             "request": {
               "headers": {
                 "accept": "application/json",
-                "x-forwarded-for": "8.8.4.4"
+                "x-forwarded-for": "34.213.34.148"
               }
             },
             "responses": {
@@ -70,16 +70,16 @@
                   "content-type": "application/json; charset=utf-8"
                 },
                 "body": {
-                  "city": null,
+                  "city": "Boardman",
                   "continent": "North America",
                   "continentCode": "NA",
                   "countryCode": "US",
                   "countryName": "United States",
-                  "latitude": 37.751,
-                  "longitude": -97.822,
-                  "postalCode": null,
-                  "region": null,
-                  "regionName": null
+                  "latitude":  45.8696,
+                  "longitude":  -119.688,
+                  "postalCode": "97818",
+                  "region": "OR",
+                  "regionName": "Oregon"
                 }
               }
             }
