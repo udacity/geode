@@ -8,7 +8,7 @@ description:
   .
   See the readme in the Git repository for more details.
 homepage:            https://github.com/udacity/geode
-version:             0.1.0.1
+version:             0.1.0.2
 license:             ISC
 license-file:        LICENSE
 author:              James Earl Douglas
