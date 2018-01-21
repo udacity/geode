@@ -8,10 +8,11 @@ import Data.IP (fromHostAddress)
 import Data.IP (IP(..))
 import Data.Maybe (listToMaybe)
 import Network.HTTP.Types (status404)
+import Network.HTTP.Types.Header (HeaderName)
 import Network.Socket (SockAddr (SockAddrInet))
-import Network.Wai (remoteHost)
+import Network.Wai (remoteHost, Middleware)
 import Web.Scotty (get, json, scotty, header, status, text, ActionM, request, param, file, setHeader, middleware)
-import Network.Wai.Middleware.Cors (simpleCors)
+import Network.Wai.Middleware.Cors ( simpleCorsResourcePolicy, cors, CorsResourcePolicy(..))
 import System.Environment (getEnv)
 import Text.Read (readMaybe)
 import qualified Data.Text.Lazy as TL
@@ -56,12 +57,21 @@ service geodb (Just ip) = do
     Left e -> nope e
     Right x -> json (Result x)
 
+udacityCorsResourcePolicy :: CorsResourcePolicy
+udacityCorsResourcePolicy =
+  update simpleCorsResourcePolicy
+  where update base@CorsResourcePolicy{..} = base { corsRequestHeaders = xsrftok : corsRequestHeaders }
+        xsrftok = "X-XSRF-TOKEN" :: HeaderName
+
+udacityCors :: Middleware
+udacityCors = cors (const $ Just udacityCorsResourcePolicy)
+
 main :: IO ()
 main = do
   dbname <- getEnv "GEOIP_DB"
   geodb <- openGeoDB dbname
   scotty 3000 $ do
-    middleware simpleCors
+    middleware udacityCors
     get "/" $ do
       ipM <- findIp
       service geodb ipM
