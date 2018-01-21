@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE RecordWildCards #-}
 
 import Data.Aeson (ToJSON, toJSON, (.=), object)
 import Data.GeoIP2
