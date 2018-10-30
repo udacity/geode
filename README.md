@@ -1,3 +1,3 @@
 # ARCHIVED
 
-This repo is no longer used. See the [geo repo](https://github.com/udacity/geo) for the replacement.
+This repo has been archived. The issues, comments, and pull requests are now read-only. You can still fork the repo.
